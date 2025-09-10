@@ -1,10 +1,12 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost:27017/tasktrackerDB', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-    }).then(() => {
+const dbconnection = async () => {
+  try {
+    await mongoose.connect('mongodb://localhost:27017/tasktrackerDB');
     console.log('MongoDB connected');
-    }).catch(err => {
+  } catch (err) {
     console.error('MongoDB connection error:', err);
-    });
+  }
+};
+
+export default dbconnection;
