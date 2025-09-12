@@ -17,13 +17,28 @@ function App() {
     .catch((error) => console.error("Error fetching data:", error));
 }, []);
 
+//handleclikc
+const handleclikc = async () =>{
+  try {
+    const data = await  fetch("http://localhost:3000/api/tasks");
+    settasks(data);
+  } catch (error) {
+    console.log(error); 
+  }
+};
+
 
   return (
     <>
       <header><h1>Task Tracker App</h1></header>
+          <form action="submit">
+                <input type="text" />
+                <button onClick={handleclikc}>submit</button>
+            </form>
       <div>
         <ul>
           {tasks.map(task => (<li key={task._id}>{task.title}</li>))}
+         
         </ul>
       </div>
     </>
