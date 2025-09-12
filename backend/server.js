@@ -27,6 +27,7 @@ app.get('/api/tasks', async (req, res) => {
     const tasks = await Task.find();
     res.json(tasks);
 });
+
 //add a taks
 app.post('/api/tasks' ,async (req, res) =>{
     try {
